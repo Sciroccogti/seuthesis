@@ -195,7 +195,7 @@ BoldItalicFont=timesbi.ttf
 \hypersetup{colorlinks=true}
 \fi
 \hypersetup{
-  linkcolor=blue,
+  linkcolor=black,
   anchorcolor=black,
   citecolor=olive,
   filecolor=magenta,
@@ -203,7 +203,7 @@ BoldItalicFont=timesbi.ttf
   urlcolor=magenta
 }
 \newpagestyle{seustyle}{
-  \sethead[][{\song{}\xiaowuhao{}东南大学2017届本科生毕业设计（论文）}][\song{}\xiaowuhao{}第\thepage 页] % 偶数页
+  \sethead[][{\song{}\xiaowuhao{}东南大学2019届本科生毕业设计（论文）}][\song{}\xiaowuhao{}第\thepage 页] % 偶数页
   {}{{\song{}\xiaowuhao{}东南大学2017届本科生毕业设计（论文）}}{\song{}\xiaowuhao{}第\thepage 页} % 奇数页
   \setfoot{}{}{}
   \headrule
@@ -630,17 +630,6 @@ BoldItalicFont=timesbi.ttf
   %\chapter*{\@title}
 
   \vspace*{10pt}
-  \begin{center}
-    \xiaoerhao \hei\@title
-  \end{center}
-
-  \begin{flushright}
-    \begin{tabular}[h]{ll}
-      \@studentid & \kai\@author \\
-      \advisorpre & \kai\@advisorname \\
-    \end{tabular}
-  \end{flushright}
-  %\vspace*{30pt}
 
   \begin{center}
     \xiaoerhao \hei\@abstracttitle
@@ -670,16 +659,6 @@ BoldItalicFont=timesbi.ttf
   \ifbachelordegree
 
   \vspace*{10pt}
-  \begin{center}
-    \xiaoerhao \textbf{\@titleeng}
-  \end{center}
-
-  \begin{flushright}
-    \begin{tabular}[h]{ll}
-      \@studentid & \@authoreng \\
-      Advisor & \@advisornameeng \\
-    \end{tabular}
-  \end{flushright}
 
   \begin{center}
     {\xiaoerhao \textbf{Abstract}}
