@@ -20,3 +20,13 @@
 1. [Windows + LaTeX + sublime text 3 + Sumatra PDF](http://www.360doc.com/content/14/0517/19/9206388_378573988.shtml)
 2. [Mac OS + LaTeX + sublime text 3 + Skim PDF](https://www.zhihu.com/question/23918126)
 3. 会用 Linux 写论文的人应该已经配好了工作环境
+
+### 使用说明
+修改main.tex即可
+`make main.pdf`
+#### 参考文献
+使用BIBTeX管理参考文献,放置在main.bib
+
+1. 知网等国内数据库不支持输出BIBTeX格式，手写或[zotero](https://www.zotero.org/)配合[chrome插件](https://chrome.google.com/webstore/detail/zotero-connector/ekhagklcjbdpajgpjgmbionohlpdbjgc/related?hl=zh-CN)食用
+2. 会用Google Scholar的人应该知道如何导出BIBTeX
+
