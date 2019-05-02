@@ -1,11 +1,5 @@
 # seuthesis
 
-### 下载地址
-* [点此下载](https://github.com/a367/seuthesis-2/releases/latest)
-* [在线预览](https://github.com/a367/seu-latex/blob/master/main.pdf)
-
-
-
 ### 说明
 * 基于 [xuyuan的seuthesis](https://github.com/xuyuan/seuthesis) 的 LaTeX 模版进行改进，并使用 [thuthesis](https://github.com/xueruini/thuthesis) 的参考文献引用样式。
 * 本 LaTeX 模版在 Windows/Mac OS/Linux 上均可以使用，并自备相应字体，不存在字体缺失问题。
@@ -21,9 +15,8 @@
 2. [Mac OS + LaTeX + sublime text 3 + Skim PDF](https://www.zhihu.com/question/23918126)
 3. 会用 Linux 写论文的人应该已经配好了工作环境
 
-### 使用说明
-修改main.tex即可
-`make main.pdf`
+### 使用
+修改main.tex，`make main.pdf`即可
 #### 参考文献
 使用BIBTeX管理参考文献,放置在main.bib
 
