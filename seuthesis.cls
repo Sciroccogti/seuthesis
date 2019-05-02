@@ -204,7 +204,7 @@ BoldItalicFont=timesbi.ttf
 }
 \newpagestyle{seustyle}{
   \sethead[][{\song{}\xiaowuhao{}东南大学2019届本科生毕业设计（论文）}][\song{}\xiaowuhao{}第\thepage 页] % 偶数页
-  {}{{\song{}\xiaowuhao{}东南大学2017届本科生毕业设计（论文）}}{\song{}\xiaowuhao{}第\thepage 页} % 奇数页
+  {}{{\song{}\xiaowuhao{}东南大学2019届本科生毕业设计（论文）}}{\song{}\xiaowuhao{}第\thepage 页} % 奇数页
   \setfoot{}{}{}
   \headrule
 }
@@ -212,8 +212,8 @@ BoldItalicFont=timesbi.ttf
   \pagestyle{seunolabelstyle}
 }
 \newpagestyle{seunolabelstyle}{
-  \sethead[][{\song{}\xiaowuhao{}东南大学2017届本科生毕业设计（论文）}][]
-  {}{{\song{}\xiaowuhao{}东南大学2017届本科生毕业设计（论文）}}{}
+  \sethead[][{\song{}\xiaowuhao{}东南大学2019届本科生毕业设计（论文）}][]
+  {}{{\song{}\xiaowuhao{}东南大学2019届本科生毕业设计（论文）}}{}
   \setfoot{}{}{}
   \headrule
 }
