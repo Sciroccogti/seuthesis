@@ -81,7 +81,6 @@
    \setlength{\parindent}{2em}
    }
 
-
 % 修改中文字体族，增加黑体
 \setCJKmainfont[
 Path = ./font/,
@@ -120,7 +119,6 @@ BoldItalicFont=timesbi.ttf
 \newcommand{\liuhao}{\fontsize{7.5pt}{9pt}\selectfont}
 \newcommand{\xiaoliuhao}{\fontsize{6.5pt}{7.5pt}\selectfont}
 \newcommand{\qihao}{\fontsize{5.5pt}{6.5pt}\selectfont}
-
 
  \renewcommand\frontmatter{%
  \ifstoneside\clearpage\else\cleardoublepage\fi
@@ -165,9 +163,6 @@ BoldItalicFont=timesbi.ttf
 \hypersetup{bookmarksnumbered=true}%书签中章节编号
 \defaultfontfeatures{Mapping=tex-text} % --- as em-dash
 
-
-
-
 \setlength{\parskip}{0pt}% 段距
 \newcommand{\mainlineskip}{1.3}% 主行距1.3
 \titlespacing{\section}{0pt}{3.5ex plus .05ex minus .01ex}{2.9ex plus .04ex} % 标题间距
@@ -175,7 +170,6 @@ BoldItalicFont=timesbi.ttf
 \titlespacing{\subsubsection}{0pt}{1.5ex plus .05ex minus .01ex}{1ex plus .01ex}
 
 %my change
-
 
 \newcommand{\linespacing}[1]{\linespread{#1}\selectfont}% 行距命令
 \newcommand{\stcleardp}{%
@@ -250,18 +244,7 @@ BoldItalicFont=timesbi.ttf
  \renewcommand{\@advisornameeng}{#3}
  \renewcommand{\@advisortitleeng}{#4}
 }
-\newif\ifbcoadvisor\bcoadvisorfalse
-\newcommand{\@coadvisorname}{}
-\newcommand{\@coadvisortitle}{}
-\newcommand{\@coadvisornameeng}{}
-\newcommand{\@coadvisortitleeng}{}
-\newcommand{\coadvisor}[4]{
- \bcoadvisortrue
- \renewcommand{\@coadvisorname}{#1}
- \renewcommand{\@coadvisortitle}{#2}
- \renewcommand{\@coadvisornameeng}{#3}
- \renewcommand{\@coadvisortitleeng}{#4}
-}
+
 \newcommand{\@categorynumber}{}
 \newcommand{\categorynumber}[1]{\renewcommand{\@categorynumber}{#1}}
 \newcommand{\@secretlevel}{}
@@ -304,10 +287,12 @@ BoldItalicFont=timesbi.ttf
  \renewcommand{\@readerA}{#1}
  \renewcommand{\@readerB}{#2}
 }
+\ifexperiment
 \newcommand{\@duration}{}
 \newcommand{\duration}[1]{\renewcommand{\@duration}{#1}}
 \newcommand{\@address}{}
 \newcommand{\address}[1]{\renewcommand{\@address}{#1}}
+\fi
 \newif\ifseuthesisthanks\seuthesisthanksfalse
 \newcommand{\seuthesis@thanks}{}
 \renewcommand{\thanks}[1]{\seuthesisthankstrue\renewcommand{\seuthesis@thanks}{#1}}
@@ -355,6 +340,12 @@ BoldItalicFont=timesbi.ttf
 }
 
 \newcommand{\chinesecover}{
+
+  \ifexperiment
+  \def\@degreepic{experiment}
+  \else
+  \def\@degreepic{paper}
+  \fi
 
  \begin{titlepage}
    \linespacing{1.0}
@@ -404,13 +395,7 @@ BoldItalicFont=timesbi.ttf
            \makebox[2cm][r]{\xiaoerhao\hei\@advisortitle}}}
        \\
        &
-       \ifbcoadvisor
-        \underline{\makebox[6cm][s]{
-           \hspace*{1cm}
-           \makebox[2.5cm][c]{\xiaoerhao\hei\@coadvisorname}
-           \makebox[2cm][r]{\xiaoerhao\hei\@coadvisortitle}}}
-       \else
-       \fi \\
+
      \end{tabular}
    \end{center}
 
@@ -471,13 +456,7 @@ BoldItalicFont=timesbi.ttf
            \makebox[2cm][r]{\xiaoerhao\song\textbf{\@advisortitle}}}}
        \\
        &
-       \ifbcoadvisor
-       \underline{\makebox[6cm][s]{
-           \hspace*{1cm}
-           \makebox[2.5cm][c]{\xiaoerhao\song\textbf{\@coadvisorname}}
-           \makebox[2cm][r]{\xiaoerhao\song\textbf{\@coadvisortitle}}}}
-       \else
-       \fi \\
+
      \end{tabular}
  \end{center}
 
@@ -489,7 +468,7 @@ BoldItalicFont=timesbi.ttf
  \stcleardp
 }
 
-\ifexperiment % 本科论文封面
+ % 本科论文封面
 \renewcommand{\chinesecover}{
  \begin{titlepage}
    \linespacing{1.0}
@@ -506,7 +485,6 @@ BoldItalicFont=timesbi.ttf
      {\xiaoerhao\song\titlepre}
      {\erhao\song \parbox[t]{16em}{\fs\uline{\hfill \@title \hfill}}}\\
    
-
      \vspace*{40pt}
      \renewcommand{\arraystretch}{1.5}
      \setlength{\tabcolsep}{0pt}
@@ -533,10 +511,6 @@ BoldItalicFont=timesbi.ttf
        \sanhao\advisorpre\quad\underline{\makebox[20em][s]{%
            \makebox[20em][c]{\fs{\@advisorname}}}}%
        \\
-       \ifbcoadvisor
-       \sanhao\coadvisorpre\quad\underline{\makebox[20em][s]{%
-           \makebox[20em][c]{\fs{\@coadvisorname}}}}\\%
-       \fi
        \ifexperiment
        \sanhao\durationpre\quad\underline{\makebox[20em][s]{
           \makebox[20em][c]{\fs{\@duration}}}}\\%
@@ -549,7 +523,7 @@ BoldItalicFont=timesbi.ttf
    \end{center}
  \end{titlepage}
 }
-\fi
+
 \newcommand{\englishcover}{
  \thispagestyle{empty}%
  \begin{center}
@@ -573,11 +547,7 @@ BoldItalicFont=timesbi.ttf
        {\vspace{0.5in}}%
        {Supervised by:}\\
        {\@advisortitleeng\  \@advisornameeng}\\
-       \ifbcoadvisor
-       {and}\\
-       {\@coadvisortitleeng\  \@coadvisornameeng}\\
-       \else
-       \fi
+
        {\vspace{0.5in}}%
        {\vfill}
        {\@departmenteng}\\
@@ -595,8 +565,7 @@ BoldItalicFont=timesbi.ttf
  \stcleardp
  \phantomsection
  \addcontentsline{toc}{chapter}{\@abstracttitletoc}
- \ifexperiment
- \else
+
  \renewcommand{\newtitleline}{\\}
  %\chapter*{\@title}
 
@@ -619,15 +588,11 @@ BoldItalicFont=timesbi.ttf
  %\vspace*{30pt}
 
  \par
- \else
- \chapter*{\@abstracttitle}
- \fi
+
  \song
- \ifexperiment
+
  \wuhao
- \else
- \xiaosihao
- \fi
+
 }{
  \\[1\baselineskip]
  \textbf{关键词：} \@keywords
@@ -638,38 +603,15 @@ BoldItalicFont=timesbi.ttf
  \stcleardp
  \phantomsection
  \addcontentsline{toc}{chapter}{Abstract}
- \ifexperiment
-\else
- \vspace*{10pt}
- \begin{center}
-   \xiaoerhao \textbf{\@titleeng}
- \end{center}
 
- \begin{flushright}
-   \begin{tabular}[h]{ll}
-     \@studentid & \@authoreng \\
-     Advisor & \@advisornameeng \\
-   \end{tabular}
- \end{flushright}
-
- \begin{center}
-   {\xiaoerhao \textbf{Abstract}}
- \end{center}
- \par
- \else
- \chapter*{Abstract}
- \fi
  \song
- \ifexperiment
+
  \xiaosihao
- \else
- \wuhao
- \fi
+
 }{
  \\[1\baselineskip]
  \textbf{KEY WORDS:} \@keywords
 }
-
 
 \let\tableofcontents@orig=\tableofcontents
 \renewcommand{\tableofcontents}
@@ -754,11 +696,6 @@ BoldItalicFont=timesbi.ttf
    {\includegraphics[width=\textwidth,bb=0 0 2424 3508]{figures/back-cover.png}}
  \end{picture}
 }
-\ifexperiment
-\else
-\renewcommand{\backcover}{}
-\fi
-
 
 \endinput
 %%
