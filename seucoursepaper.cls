@@ -272,13 +272,7 @@ BoldItalicFont=timesbi.ttf
 \newcommand{\submajor}[1]{
  \renewcommand{\@submajor}{#1}
 }
-\newcommand{\@defenddate}{}
-\newcommand{\defenddate}[1]{\renewcommand{\@defenddate}{#1}}
-\newcommand{\authorizeorganization}[1]{
- \renewcommand{\@authorizeorganization}{#1}
-}
-\newcommand{\@authorizedate}{}
-\newcommand{\authorizedate}[1]{\renewcommand{\@authorizedate}{#1}}
+
 \newcommand{\@committeechair}{}
 \newcommand{\committeechair}[1]{\renewcommand{\@committeechair}{#1}}
 \newcommand{\@readerA}{}
@@ -588,7 +582,6 @@ BoldItalicFont=timesbi.ttf
  %\vspace*{30pt}
 
  \par
-
  \song
 
  \wuhao
@@ -604,6 +597,7 @@ BoldItalicFont=timesbi.ttf
  \phantomsection
  \addcontentsline{toc}{chapter}{Abstract}
 
+ \chapter*{Abstract}
  \song
 
  \xiaosihao
