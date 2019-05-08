@@ -40,8 +40,10 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrbook}}
 \ProcessOptions
 %\LoadClass[a4paper,captions=tableheading]{scrbook}
-\LoadClass[a4paper,10.5pt,tablecaptionabove]{scrbook}
+\LoadClass[a4paper,10.5pt,captions=tableheading]{scrbook}
 \let\todayeng\today
+
+\RequirePackage[fontset=none]{ctex}
 
 % my change
 \RequirePackage{lmodern}
@@ -65,8 +67,8 @@
 \RequirePackage{paralist}% 修改列表格式
 \setdefaultenum{1)}{a)}{i.}{A.}% 设置列表模式
 \setdefaultleftmargin{4ex}{}{}{}{}{}
-\RequirePackage[CJKnumber,slantfont,boldfont]{xeCJK}
-\RequirePackage{CJKulem}
+% \RequirePackage[CJKnumber,slantfont,boldfont]{xeCJK}
+% \RequirePackage{CJKulem}
 
 % my change
 \RequirePackage{ulem}
@@ -88,6 +90,7 @@ BoldFont=simhei.ttf,
 ItalicFont=simkai.ttf,
 BoldItalicFont=simfang.ttf
 ]{simsun.ttf}
+\setCJKsansfont{simhei.ttf}
 \setCJKfamilyfont{zhsong}[Path = ./font/]{simsun.ttf}
 \newcommand{\song}{\CJKfamily{zhsong}}
 \setCJKfamilyfont{zhhei}[Path = ./font/]{simhei.ttf}
@@ -104,6 +107,14 @@ BoldFont=timesbd.ttf,
 ItalicFont=timesi.ttf,
 BoldItalicFont=timesbi.ttf
 ]{times.ttf}
+
+
+\setmonofont[
+  Path = ./font/,
+  BoldFont=sarasa-monoT-sc-bold.ttf,
+  ItalicFont=sarasa-monoT-sc-italic.ttf,
+  BoldItalicFont=sarasa-monoT-sc-bolditalic.ttf
+]{sarasa-monoT-sc-regular.ttf}
 
 \newcommand{\chuhao}{\fontsize{42pt}{46pt}\selectfont}
 \newcommand{\xiaochuhao}{\fontsize{36pt}{40pt}\selectfont}
@@ -552,6 +563,38 @@ BoldItalicFont=timesbi.ttf
    \end{center}%
  \stcleardp%
 }
+
+\ifexperiment
+% 中文标题格式设置
+% 目录深度
+\setcounter{secnumdepth}{3}
+% 节标题格式, 居中, 使用\chinese命令修改计数器
+\def\@seccntformat#1{\csname the#1\endcsname\ }
+\renewcommand\thesection{\chinese{section}、}
+\renewcommand\thesubsection{\arabic{section}\thinspace.\thinspace\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection\thinspace.\thinspace\arabic{subsubsection}}
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+ 	{-3.5ex \@plus -1ex \@minus -.2ex}%
+	{2.3ex \@plus.2ex}%
+	{\centering\normalfont\Large\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+	{-3.25ex\@plus -1ex \@minus -.2ex}%
+	{1.5ex \@plus .2ex}%
+	{\normalfont\large\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+	{-3.25ex\@plus -1ex \@minus -.2ex}%
+	{1.5ex \@plus .2ex}%
+	{\normalfont\normalsize\bfseries}}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+	{3.25ex \@plus1ex \@minus.2ex}%
+	{-1em}%
+	{\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
+	 {3.25ex \@plus1ex \@minus .2ex}%
+	 {-1em}%
+	 {\normalfont\normalsize\bfseries}}
+\fi
+
 \newenvironment{abstract}[1]
 {
  \newcommand{\@keywords}{#1}

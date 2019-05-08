@@ -1,0 +1,128 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% !Mode:: "TeX:UTF-8"
+
+\documentclass[experiment, printoneside]{seucoursepaper} % 实验报告
+
+\usepackage{CJK,CJKnumb}
+\usepackage{amsmath}
+\usepackage{amsfonts} 
+\usepackage{bm} 
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage[titletoc, title]{appendix}
+\usepackage{calc}
+\usepackage{listings}
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+\usepackage{subfigure}
+\newfontfamily\sarasa{sarasa-monoT-sc-regular.ttf}
+ % 这里是导言区
+
+\begin{document}
+\categorynumber{000} % 分类采用《中国图书资料分类法》
+\UDC{000}            %《国际十进分类法UDC》的类号
+\secretlevel{公开}    %学位论文密级分为"公开"、"内部"、"秘密"和"机密"四种
+\studentid{04217751}   %学号要完整，前面的零不能省略。
+
+\title{哈德逊鲈鱼年龄分布研究}{}{}{subtitle}
+\author{张逸帆}{Yifan Zhang}
+\advisor{王丽艳}{讲师}{Liyan Wang}{Lecturer}
+
+\major[12em]{信息工程}
+\department{信息科学与工程}{department name}
+\duration{2019年5月} % paper时不能启用
+\address{教学楼6 401}
+\maketitle
+
+\begin{abstract}{希腊字母，腓尼基字母，语言，深度学习}
+希腊字母源自腓尼基字母。腓尼基字母只有辅音，从右向左写。希腊语的元音发达，希腊人增添了元音字母。因为希腊人的书写工具是蜡板，有时前一行从右向左写完后顺势就从左向右写，变成所谓“耕地”式书写，后来逐渐演变成全部从左向右写。字母的方向也颠倒了。罗马人引进希腊字母，略微改变变为拉丁字母，在世界广为流行。希腊字母广泛应用到学术领域，如数学等。
+
+希腊字母是希腊语所使用的字母，是世界上最早的有元音的字母，也广泛使用于数学、物理、生物、天文等学科。俄语等使用的西里尔字母也是由希腊字母演变而成。希腊字母进入了许多语言的词汇中，英语单字“alphabet”（字母表），源自拉丁语“alphabetum”，源自希腊语“αλφαβητον”，即为前两个希腊字母α（“Alpha”）及β（“Beta”）所合成，三角洲（“Delta”）这个词就来自希腊字母Δ，因为Δ是三角形。
+\end{abstract}
+
+\begin{englishabstract}{Greek Alphabet, Phoenician Alphabet, Language, Deep Learning}
+The Greek alphabet has been used to write the Greek language since the late 9th century BC or early 8th century BC It was derived from the earlier Phoenician alphabet, and was the first alphabetic script to have distinct letters for vowels as well as consonants. It is the ancestor of the Latin and Cyrillic scripts.Apart from its use in writing the Greek language, in both its ancient and its modern forms, the Greek alphabet today also serves as a source of technical symbols and labels in many domains of mathematics, science and other fields.
+
+In its classical and modern forms, the alphabet has 24 letters, ordered from alpha to omega. Like Latin and Cyrillic, Greek originally had only a single form of each letter; it developed the letter case distinction between upper-case and lower-case forms in parallel with Latin during the modern era.
+\end{englishabstract}
+
+\tableofcontents
+
+\begin{terminology}
+\begin{table}[h]
+\renewcommand\arraystretch{1.5}
+%\Large
+\begin{tabular}{>{\LARGE}m{0.2\textwidth} <{\centering}m{0.7\textwidth}}
+a & 如同汉字起源于象形，拉丁字母表中的每个字母一开始都是描摹某种动物或物体形状的图画\\
+
+b&和A一样，字母B也可以追溯到古代腓尼基。在腓尼基字母表中B叫beth,代表房屋，在希伯来语中B也叫beth，也含房屋之意。\\
+
+c& 字母C在腓尼基人的文字中叫gimel，代表骆驼。它在字母表中的排列顺序和希腊字母Γ(gamma)相同，实际上其字形是从后者演变而来的。C在罗马数字中表示100。\\
+
+d&D在古时是描摹拱门或门的形状而成的象形符号，在古代腓尼基语和希伯来语中叫做daleth，是“门”的意思，相当于希腊字母Δ（delta）。\\
+
+\end{tabular}
+%\caption{my table}
+\end{table}
+\end{terminology}
+
+% \begin{Main} % 开始正文
+
+\section{问题重述}
+在哈德逊河中产卵的鲈鱼种群受到工业污染影响，为此，需要建立数学模型以了解其情况。
+我们将鲈鱼分为16个年龄组：
+\begin{center}
+    0-1年(卵)，1-2年(游鱼)，2龄鱼，3龄鱼，…，15龄鱼
+\end{center}
+其中5-15年龄的鲈鱼为成年鱼，而3-15年龄的鱼为可捕捞鱼。
+已知考虑自然死亡及捕捞后，各年龄组的成活率$P_k$及每条雌鱼所产后代$F_k$的数据如下：
+\begin{table}
+\begin{center}
+\begin{tabular}{c c c c c c c c c}
+\hline
+年龄组 & 0 & 1 &  2 & 3 & 4 & 5 & 6 & 7 \\
+\hline
+$P_k$ & $2.12*10^-5$ & 0.3965 & 0.6000 & 0.8000 & 0.6387 & 0.5688 & 0.5688 & 0.5688 \\
+$F_k$ & 0 & 0 & 0 & 0 & 0 & 80110 & 162700 & 212700 \\
+\hline
+\hline
+年龄组 & 8 & 9 &  10 & 11 & 12 & 13 & 14 & 15 \\
+\hline
+$P_k$ & 0.5688 & 0.5688 & 0.5688 & 0.5688 & 0.5688 & 0.5688 & 0.5688 & 0.5688 \\
+$F_k$ & 267900 & 326400 & 386000 & 444500 & 499700 & 549600 & 592200 & 592200 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+已知1970年各年龄组的鱼数(单位：千条)为
+\begin{center}
+    $X(0)=(5.21*10^7,1100,443,266,213,136,77,44,25,14,8,5,3,1,1,1)^T$
+\end{center}
+
+% \end{Main} % 结束正文
+\newpage
+%附录
+\begin{appendices}
+% \appendix
+% \renewcommand{\chaptername}{~附录~ \Alph{chapter}}
+\section{排队算法--matlab 源程序}
+\begin{lstlisting}[basicstyle=\small\sarasa]
+% 由Leslie矩阵求解其模最大特征值 和 稳定年龄分布向量
+L0 = input("请输入L矩阵：");
+[v, d] = eig(L0);
+maxEIG = max(max(abs(d)));
+fprintf("模最大特征值是%f\n",maxEIG);
+n0 = v(:, 1)./ sum(v(:, 1));
+semilogy(1:size(L0,1), n0);
+grid;
+title('鲈鱼的稳定年龄分布');
+xlabel('年龄组编号');
+ylabel('年龄分布(对数)');
+\end{lstlisting}    
+\end{appendices}
+
+\printindex % 索引
+
+\end{document}
