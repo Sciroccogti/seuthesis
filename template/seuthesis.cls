@@ -88,23 +88,23 @@
 
 % 修改中文字体族，增加黑体
 \setCJKmainfont[
-Path = ./font/,
+Path = ./template/font/,
 BoldFont=simhei.ttf,
 ItalicFont=simkai.ttf,
 BoldItalicFont=simfang.ttf
 ]{simsun.ttf}
-\setCJKfamilyfont{zhsong}[Path = ./font/]{simsun.ttf}
+\setCJKfamilyfont{zhsong}[Path = ./template/font/]{simsun.ttf}
 \newcommand{\song}{\CJKfamily{zhsong}}
-\setCJKfamilyfont{zhhei}[Path = ./font/]{simhei.ttf}
+\setCJKfamilyfont{zhhei}[Path = ./template/font/]{simhei.ttf}
 \newcommand{\hei}{\CJKfamily{zhhei}}
-\setCJKfamilyfont{zhkai}[Path = ./font/]{simkai.ttf}
+\setCJKfamilyfont{zhkai}[Path = ./template/font/]{simkai.ttf}
 \newcommand{\kai}{\CJKfamily{zhkai}}
-\setCJKfamilyfont{zhfs}[Path = ./font/]{simfang.ttf}
+\setCJKfamilyfont{zhfs}[Path = ./template/font/]{simfang.ttf}
 \newcommand{\fs}{\CJKfamily{zhfs}}
 
 % my change, 英文字体使用 Times New Roman
 \setmainfont[
-Path = ./font/,
+Path = ./template/font/,
 BoldFont=timesbd.ttf,
 ItalicFont=timesi.ttf,
 BoldItalicFont=timesbi.ttf
@@ -154,7 +154,7 @@ BoldItalicFont=timesbi.ttf
 
 \RequirePackage{hyperref}
 \AtBeginDocument{\CJKindent{}%
-    \InputIfFileExists{seuthesis-utf8.cfg}% 引入配置文件
+    \InputIfFileExists{./template/seuthesis-utf8.cfg}% 引入配置文件
     {\typeout{[seuthesis]: Load seuthesis-utf8.cfg successfully!}}%
     {\typeout{[seuthesis]: Load seuthesis-utf8.cfg failed!}}%
     \makeindex%
@@ -377,19 +377,19 @@ BoldItalicFont=timesbi.ttf
   \begin{titlepage}
     \linespacing{1.0}
     \begin{picture}(0,0)(24,250)
-      {\includegraphics[width=\textwidth,bb=0 0 1683 986]{figures/front-cover.jpg}}
+      {\includegraphics[width=\textwidth,bb=0 0 1683 986]{template/figures/front-cover.jpg}}
     \end{picture}
     \ifengineering
     \begin{picture}(0,0)(-70,255)
-      {\includegraphics[height=30pt,bb=0 0 484 55]{figures/engineering.png}}
+      {\includegraphics[height=30pt,bb=0 0 484 55]{template/figures/engineering.png}}
     \end{picture}
     \else
     \begin{picture}(0,0)(-86,255)
-      {\includegraphics[height=40pt,bb=0 0 1149 150]{figures/{\@degreepic}.png}}
+      {\includegraphics[height=40pt,bb=0 0 1149 150]{template/figures/{\@degreepic}.png}}
     \end{picture}
     \fi
     \begin{picture}(0,0)(-350,50)
-      {\includegraphics[width=50pt,bb=0 0 500 501]{figures/seu-color-logo.png}}
+      {\includegraphics[width=50pt,bb=0 0 500 501]{template/figures/seu-color-logo.png}}
     \end{picture}
 
     \begin{tabular}{l}
@@ -464,12 +464,12 @@ BoldItalicFont=timesbi.ttf
   \thispagestyle{empty}%
   \begin{center}
     \xiaochuhao
-    \includegraphics[height=0.63in]{figures/seu-text-logo}
+    \includegraphics[height=0.63in]{template/figures/seu-text-logo}
 
     \ifmasterdegree
-    \includegraphics{figures/master-hwzs}
+    \includegraphics{template/figures/master-hwzs}
     \else
-    \includegraphics{figures/doctor-hwzs}
+    \includegraphics{template/figures/doctor-hwzs}
     \fi
 
     \vspace{31.5pt}
@@ -523,7 +523,7 @@ BoldItalicFont=timesbi.ttf
     \linespacing{1.0}
     \begin{center}
       \vspace*{20pt}
-      \includegraphics[height=2cm]{figures/seu-text-logo} \\
+      \includegraphics[height=2cm]{template/figures/seu-text-logo} \\
       \vspace*{60pt}
       \yihao\hei \bachelortitle \\
       \vspace*{60pt}
@@ -743,7 +743,7 @@ BoldItalicFont=timesbi.ttf
 % my change
 \newif\ifthu@bachelor
 \def\thudot{\ifthu@bachelor\else\unskip.\fi}
-\bibliographystyle{thuthesis}
+\bibliographystyle{./template/thuthesis}
 % my change
 %\renewcommand\@biblabel[1]{#1}  % Reference list option change from [1] to 1
 \let\orig@bibliography=\bibliography
@@ -780,7 +780,7 @@ BoldItalicFont=timesbi.ttf
   \pagestyle{empty}
   \clearpage
   \begin{picture}(0,0)(20,650)
-    {\includegraphics[width=\textwidth,bb=0 0 2424 3508]{figures/back-cover.png}}
+    {\includegraphics[width=\textwidth,bb=0 0 2424 3508]{template/figures/back-cover.png}}
   \end{picture}
 }
 \ifbachelordegree
