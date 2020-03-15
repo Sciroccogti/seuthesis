@@ -532,7 +532,7 @@ BoldItalicFont=timesbi.ttf
       
       % my change
       {\xiaoerhao\song\titlepre}
-      {\erhao\song \parbox[t]{16em}{\fs\uline{\hfill \@title \hfill}}}\\
+      {\linespacing{1.5}\erhao\song \parbox[t]{16em}{\fs\uline{\hfill \@title \hfill}}}\\
     
 
       \vspace*{40pt}
@@ -555,7 +555,7 @@ BoldItalicFont=timesbi.ttf
       \begin{tabular}{c}
         \sanhao\studentidpre\quad\underline{%
           \makebox[20em][s]{\makebox[20em][c]{%
-              \textsf{\@studentid}}}} \\
+              \fs{\@studentid}}}} \\
         \sanhao\studentnamepre\quad\underline{\makebox[20em][s]{%
             \makebox[20em][c]{\fs{\@author}}}} \\
         \sanhao\advisorpre\quad\underline{\makebox[20em][s]{%
