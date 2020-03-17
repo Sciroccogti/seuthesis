@@ -90,7 +90,7 @@ BoldFont=simhei.ttf,
 ItalicFont=simkai.ttf,
 BoldItalicFont=simfang.ttf
 ]{simsun.ttf}
-\setCJKsansfont{simhei.ttf}
+\setCJKsansfont[Path = ./font/]{simhei.ttf}
 \setCJKfamilyfont{zhsong}[Path = ./font/]{simsun.ttf}
 \newcommand{\song}{\CJKfamily{zhsong}}
 \setCJKfamilyfont{zhhei}[Path = ./font/]{simhei.ttf}
