@@ -570,18 +570,13 @@ BoldItalicFont=timesbi.ttf
 \setcounter{secnumdepth}{3}
 % 节标题格式, 居中, 使用\chinese命令修改计数器
 \def\@seccntformat#1{\csname the#1\endcsname\ }
-\renewcommand\thesection{\chinese{section}、}
-\renewcommand\thesubsection{\arabic{section}\thinspace.\thinspace\arabic{subsection}}
-\renewcommand\thesubsubsection{\thesubsection\thinspace.\thinspace\arabic{subsubsection}}
-\renewcommand\section{\@startsection{section}{1}{\z@}%
- 	{-3.5ex \@plus -1ex \@minus -.2ex}%
-	{2.3ex \@plus.2ex}%
-	{\centering\normalfont\Large\bfseries}}
-\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+\renewcommand\thesection{\arabic{chapter}\thinspace.\thinspace\arabic{section}}
+\renewcommand\thesubsection{\thesection\thinspace.\thinspace\arabic{subsection}}
+\renewcommand\section{\@startsection{section}{2}{\z@}%
 	{-3.25ex\@plus -1ex \@minus -.2ex}%
 	{1.5ex \@plus .2ex}%
 	{\normalfont\large\bfseries}}
-\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+\renewcommand\subsection{\@startsection{subsection}{3}{\z@}%
 	{-3.25ex\@plus -1ex \@minus -.2ex}%
 	{1.5ex \@plus .2ex}%
 	{\normalfont\normalsize\bfseries}}
@@ -592,7 +587,7 @@ BoldItalicFont=timesbi.ttf
 \renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
 	 {3.25ex \@plus1ex \@minus .2ex}%
 	 {-1em}%
-	 {\normalfont\normalsize\bfseries}}
+   {\normalfont\normalsize\bfseries}}
 \fi
 
 \newenvironment{abstract}[1]
