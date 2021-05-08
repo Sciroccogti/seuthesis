@@ -21,9 +21,9 @@
 %% To produce the documentation run the original source files ending with `.dtx'
 %% through LaTeX.
 %% 
- \NeedsTeXFormat{LaTeX2e}[1999/12/01]
- \ProvidesClass{seuthesis}[2012/04/19 2.1.2 The LaTeX template for thesis of Southeast University]
- \typeout{Document Class `seuthesis' v2.1.2 by Xu Yuan, Song Yihan, Huang Xiaoyu (2012/04/19)}
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesClass{seuthesis}[2012/04/19 2.1.2 The LaTeX template for thesis of Southeast University]
+\typeout{Document Class `seuthesis' v2.1.2 by Xu Yuan, Song Yihan, Huang Xiaoyu (2012/04/19)}
 \newif\ifbachelordegree\bachelordegreefalse
 \newif\ifmasterdegree\masterdegreetrue
 \newif\ifengineering\engineeringfalse
@@ -44,7 +44,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrbook}}
 \ProcessOptions
 %\LoadClass[a4paper,captions=tableheading]{scrbook}
-\LoadClass[a4paper,10.5pt,tablecaptionabove]{scrbook}
+\LoadClass[a4paper,12pt,tablecaptionabove]{scrbook} % a4纸小四号字
 \let\todayeng\today
 
 % my change
@@ -75,8 +75,6 @@
 % my change
 \RequirePackage{ulem}
 
-% 加粗改黑体
-\renewcommand{\textbf}[1]{{\normalfont\bfseries #1}}
 % my change
 %\def\CJK@spaceChar{\hskip \f@size \p@}
 \def\CJKindent{%
@@ -141,7 +139,6 @@ BoldItalicFont=timesbi.ttf
   \ifstoneside\clearpage\else\cleardoublepage\fi
   \@mainmattertrue}
 
-% my change
 \DeclareCaptionFont{capFont}{\song\wuhao} % 表格名及图名用5号宋体
 \DeclareCaptionLabelSeparator{twospace}{~~}
 \captionsetup{
@@ -169,17 +166,11 @@ BoldItalicFont=timesbi.ttf
 \hypersetup{bookmarksnumbered=true}%书签中章节编号
 \defaultfontfeatures{Mapping=tex-text} % --- as em-dash
 
-
-
-
 \setlength{\parskip}{0pt}% 段距
-\newcommand{\mainlineskip}{1.3}% 主行距1.3
-\titlespacing{\section}{0pt}{3.5ex plus .05ex minus .01ex}{2.9ex plus .04ex} % 标题间距
-\titlespacing{\subsection}{0pt}{3ex plus .05ex minus .01ex}{2ex plus .04ex}
-\titlespacing{\subsubsection}{0pt}{1.5ex plus .05ex minus .01ex}{1ex plus .01ex}
-
-%my change
-
+\newcommand{\mainlineskip}{1.5}% 主行距1.5
+%\titlespacing{\section}{0pt}{3.5ex plus .05ex minus .01ex}{2.9ex plus .04ex} % 标题间距
+%\titlespacing{\subsection}{0pt}{3ex plus .05ex minus .01ex}{2ex plus .04ex}
+%\titlespacing{\subsubsection}{0pt}{1.5ex plus .05ex minus .01ex}{1ex plus .01ex}
 
 \newcommand{\linespacing}[1]{\linespread{#1}\selectfont}% 行距命令
 \newcommand{\stcleardp}{%
@@ -190,32 +181,41 @@ BoldItalicFont=timesbi.ttf
   \fi
 }
 \ifnocolorlinks
-\hypersetup{colorlinks=false}
+\hypersetup{colorlinks=true,linkcolor=black}
 \else
-\hypersetup{colorlinks=true}
+\hypersetup{colorlinks=true,linkcolor=blue}
 \fi
 \hypersetup{
-  linkcolor=black,
   anchorcolor=black,
   citecolor=olive,
   filecolor=magenta,
   menucolor=red,
   urlcolor=magenta
 }
-\newpagestyle{seustyle}{
-  \sethead[][{\song{}\xiaowuhao{}东南大学2019届本科生毕业设计（论文）}][\song{}\xiaowuhao{}第\thepage 页] % 偶数页
-  {}{{\song{}\xiaowuhao{}东南大学2019届本科生毕业设计（论文）}}{\song{}\xiaowuhao{}第\thepage 页} % 奇数页
-  \setfoot{}{}{}
+% 页眉页脚设置
+\newpagestyle{seustyle}{ % 正文
+  \sethead[][{\song{}\xiaowuhao{}东南大学本科毕业设计（论文）}][] % 偶数页
+  {}{{\song{}\xiaowuhao{}东南大学本科毕业设计（论文）}}{} % 奇数页
+  \setfoot{}{\song{}\xiaowuhao{}\thepage}{}
   \headrule
+}
+\newpagestyle{seuabstractstyle}{ % 摘要页
+  \sethead{}{}{}
+  \pagenumbering{Roman}
+  \setfoot{}{\song{}\xiaowuhao{}{}\thepage}{}
 }
 \newpagestyle{seufrontstyle}{
   \pagestyle{seunolabelstyle}
 }
 \newpagestyle{seunolabelstyle}{
-  \sethead[][{\song{}\xiaowuhao{}东南大学2019届本科生毕业设计（论文）}][]
-  {}{{\song{}\xiaowuhao{}东南大学2019届本科生毕业设计（论文）}}{}
+  \sethead[][{\song{}\xiaowuhao{}东南大学本科毕业设计（论文）}][]
+  {}{{\song{}\xiaowuhao{}东南大学本科毕业设计（论文）}}{}
   \setfoot{}{}{}
   \headrule
+}
+\newpagestyle{seucontentsstyle}{
+  \sethead{}{}{}
+  \setfoot{}{}{}
 }
 \renewpagestyle{plain}{
   \pagestyle{seunolabelstyle}
@@ -523,10 +523,10 @@ BoldItalicFont=timesbi.ttf
     \linespacing{1.0}
     \begin{center}
       \vspace*{20pt}
-      \includegraphics[height=2cm]{figures/seu-text-logo} \\
+      \includegraphics[height=4.5cm]{figures/seu-bachelor} \\
       \vspace*{60pt}
-      \yihao\hei \bachelortitle \\
-      \vspace*{60pt}
+      % \yihao\hei \bachelortitle \\
+      % \vspace*{60pt}
       %{\xiaoerhao\song \titlepre}
       % {\erhao\song \parbox[t]{18em}{\fs\uline{\hfill\@title\hfill}}} \\
       
@@ -618,7 +618,7 @@ BoldItalicFont=timesbi.ttf
     \end{center}%
   \stcleardp%
 }
-\newenvironment{abstract}[1]
+\newenvironment{abstract}[1] % 中文摘要
 {
   \newcommand{\@keywords}{#1}
   \hypersetup{pdfkeywords={\@keywords}}
@@ -627,15 +627,9 @@ BoldItalicFont=timesbi.ttf
   \addcontentsline{toc}{chapter}{\@abstracttitletoc}
   \ifbachelordegree
   \renewcommand{\newtitleline}{\\}
-  %\chapter*{\@title}
-
-  \vspace*{10pt}
-
-  \begin{center}
-    \xiaoerhao \hei\@abstracttitle
-  \end{center}
-  %\vspace*{30pt}
-
+ \begin{center}
+   \sanhao \hei\textbf{\@abstracttitle}
+ \end{center}
   \par
   \else
   \chapter*{\@abstracttitle}
@@ -648,20 +642,17 @@ BoldItalicFont=timesbi.ttf
   \fi
 }{
   \\[1\baselineskip]
-  \textbf{关键词：} \@keywords
+  关键词：\@keywords
 }
-\newenvironment{englishabstract}[1]
+\newenvironment{englishabstract}[1] % 英文摘要
 {
   \newcommand{\@keywords}{#1}
   \stcleardp
   \phantomsection
   \addcontentsline{toc}{chapter}{Abstract}
   \ifbachelordegree
-
-  \vspace*{10pt}
-
   \begin{center}
-    {\xiaoerhao \textbf{Abstract}}
+    {\sanhao \textbf{ABSTRACT}}
   \end{center}
   \par
   \else
@@ -673,24 +664,24 @@ BoldItalicFont=timesbi.ttf
   \else
   \wuhao
   \fi
-}{
-  \\[1\baselineskip]
-  \textbf{KEY WORDS:} \@keywords
+}{\\
+
+  KEY WORDS: \@keywords
 }
 
-
 \let\tableofcontents@orig=\tableofcontents
+% 目录页
 \renewcommand{\tableofcontents}
 {
   \stcleardp
   {\linespacing{1.15}%
   \song\xiaosihao%
   \phantomsection
-  \pagestyle{seunolabelstyle}
+  \pagestyle{seuabstractstyle}
   \tableofcontents@orig \par
   \clearpage} %目录部分字体可采用小四号宋体。
 
-  \renewpagestyle{plain}{\pagestyle{seustyle}}
+ \renewpagestyle{plain}{\pagestyle{seustyle}}
 }
 \newenvironment{terminology}[1][\@terminologytitle]
 {
@@ -728,7 +719,7 @@ BoldItalicFont=timesbi.ttf
 \let\orig@bibliography=\bibliography
 \renewcommand{\bibliography}[1]{
   \orig@bibliography{#1}
-  \pagestyle{seustyle}\clearpage % 使参考文献使用 seunolabel 页面样式
+  \pagestyle{seustyle} %\clearpage % 使参考文献使用 seunolabel 页面样式
   \pagestyle{seufrontstyle}} % 恢复原有样式给后续部分
 \newenvironment{Acknowledgement}[1][\@acknowledgementtitle]
 {%
