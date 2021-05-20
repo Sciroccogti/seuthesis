@@ -187,7 +187,7 @@ BoldItalicFont=timesbi.ttf
 \fi
 \hypersetup{
   anchorcolor=black,
-  citecolor=black,
+  citecolor=blue,
   filecolor=magenta,
   menucolor=red,
   urlcolor=black
