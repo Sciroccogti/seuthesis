@@ -187,10 +187,10 @@ BoldItalicFont=timesbi.ttf
 \fi
 \hypersetup{
   anchorcolor=black,
-  citecolor=olive,
+  citecolor=black,
   filecolor=magenta,
   menucolor=red,
-  urlcolor=magenta
+  urlcolor=black
 }
 % 页眉页脚设置
 \newpagestyle{seustyle}{ % 正文
