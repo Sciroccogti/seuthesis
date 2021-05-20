@@ -567,8 +567,8 @@ BoldItalicFont=timesbi.ttf
         \fi
         \sanhao\durationpre\quad\underline{\makebox[20em][s]{
             \makebox[20em][c]{\fs{\@duration}}}}\\%
-        \sanhao\addresspre\quad\underline{\makebox[20em][s]{
-            \makebox[20em][c]{\fs{\@address}}}} \\
+        % \sanhao\addresspre\quad\underline{\makebox[20em][s]{
+        %    \makebox[20em][c]{\fs{\@address}}}} \\
       \end{tabular}
       %\vfill
       %{\sanhao\today \par}
@@ -713,7 +713,7 @@ BoldItalicFont=timesbi.ttf
 % my change
 \newif\ifthu@bachelor
 \def\thudot{\ifthu@bachelor\else\unskip.\fi}
-\bibliographystyle{thuthesis}
+%\bibliographystyle{thuthesis} % 与 gbt7714 冲突
 % my change
 %\renewcommand\@biblabel[1]{#1}  % Reference list option change from [1] to 1
 \let\orig@bibliography=\bibliography
